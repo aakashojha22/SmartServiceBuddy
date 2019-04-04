@@ -1,0 +1,24 @@
+{% extends 'service_man/base.html' %}
+
+{% block content %}
+
+<div class="container ">
+
+
+    <p>Name :- <b><u>{{clientrequest.name}}</u></b></p>
+    <p>Mobile :- <b><u>{{clientrequest.mobile}}</u></b></p>
+    <p>Email :- <b><u>{{clientrequest.email}}</u></b></p>
+    <p>Pincode :- <b><u>{{clientrequest.pincode}}</u></b></p>
+    <p>Address:- <b><u>{{clientrequest.address}}</u></b></p>
+    <p>Appliance_type:- <b><u>{{clientrequest.appliance_type}}</u></b></p>
+    <p>Appliance_brand:- <b><u>{{clientrequest.appliance_brand}}</u></b></p>
+    <p>Appliance_model:- <b><u>{{clientrequest.appliance_model}}</u></b></p>
+    <p>Warranty:- <b><u>{{clientrequest.warranty}}</u></b></p>
+    <p>Problem_description:- <b><u>{{clientrequest.problem_description}}</u></b></p>
+    <p>Request_date:- <b><u>{{clientrequest.request_date}}</u></b></p>
+    <p>Appointment_date:- <b><u>{{clientrequest.appointment_date}}</u></b></p>
+    <p>Appointment_date:- <b><u>{{clientrequest.appointment_time}}</u></b></p>
+
+</div>
+
+{% endblock %}

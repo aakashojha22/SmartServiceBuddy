@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+    <div ><img src="{% static 'images/faq.jpg' %}" width="100%" height="90%" class="d-inline-block align-top" alt="">
+
+</div>
+
+
+<br>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+
+      <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        What kind of repairs does SmartServiceBuddy Repair Service cover?</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">SmartServiceBuddy Breakdown Service covers repair service (labour) of all your home electronics, home appliances and IT devices (select cities). SmartServiceBuddy Repair Service does not cover mobile phones, tablets, gaming consoles, iPods and other MP3 players, cameras and Apple products.</div>
+    </div>
+  </div>
+     <br>
+  <div class="panel panel-default">
+
+      <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Why should I go for a SmartServiceBuddy Repair Service?</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">If you place request between 10am to 8pm (IST) you will be responded with a phone call from our SmartServiceBuddy care executive within 15 minutes. Any time before or after the mentioned times, you will receive a call from us the next working day. On phone confirmation, the request will be processed immediately.</div>
+    </div>
+  </div>
+    <br>
+  <div class="panel panel-default">
+
+      <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Why should I go for a SmartServiceBuddy Repair Service?</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">  <ul>SmartServiceBuddy is a one point contact for all appliance service needs</ul>
+  <ul>SmartServiceBuddy workmanship comes with a 90-day service warranty</ul>
+  <ul>We only use genuine spare parts</ul>
+  <ul>SmartServiceBuddy is a service partner for India's leading product and retail brands.</ul></div>
+    </div>
+  </div>
+</div>
+
+</div>
+{% endblock %}       

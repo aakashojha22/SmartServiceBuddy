@@ -1,0 +1,27 @@
+{% extends 'service_man/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+
+
+<div class="container">
+ {% if user.is_authenticated%}
+    <h1>already Logged In</h1>
+    {% else %}
+{% if form.error %}
+    <h2>Your Username ans Password is incorrect...</h2>
+    {% endif %}
+<form method="POST" action="{% url 'service_man:login' %}">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit"  class="btn btn-primary " name="" value="Login">
+
+
+    {% endif %}
+
+</form>
+</div>
+
+
+
+{% endblock %}

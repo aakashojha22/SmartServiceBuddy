@@ -1,0 +1,23 @@
+{% extends 'service_man/base.html' %}
+{% block content %}
+<div  class="centerstage">
+
+
+
+    {% for request in clientrequest_list %}
+    {% ifequal user.username|cut:" " request.service_man|cut:" " %}
+        {% if request.verfication_status %}
+        <div class="container" >
+        <h1><a href="{% url 'service_man:request_detail' pk=request.pk %}">{{request.email}}</a></h1>
+            <div class="date">
+            <p>Appointment on:{{request.appointment_date|date:"d M Y"}}</p>
+
+
+            {% endif %}
+                    {% endifequal %}
+         {% endfor %}
+
+</div>
+</div>
+    </div>
+        {% endblock %}

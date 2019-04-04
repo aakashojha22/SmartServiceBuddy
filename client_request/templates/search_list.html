@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div  class="centerstage">
+<form method='GET'>
+
+    <label>Enter You Phone no. or Email&nbsp;&nbsp;</label><input class="" type='text' name='q' value='{{ request.GET.q }}'>
+  <input class="btn btn-primary" type='submit' value="Search Request" >
+    <br>
+    <br>
+</form>
+    </div>
+
+
+
+  {% for request in object_list %}
+        <div class="container" >
+        <h1><a href="{% url 'request_detail' pk=request.pk %}">{{request.email}}</a></h1>
+            <div class="date">
+            <p>Appointment on:{{request.appointment_date|date:"d M Y"}}</p>
+         <br>
+                </div>
+            </div>s
+                {% endfor %}
+
+
+
+
+
+        {% endblock %}
