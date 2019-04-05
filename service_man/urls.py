@@ -1,7 +1,7 @@
 
 from django.urls import path
 from django.contrib.auth import views
-from django.urls import reverse_lazy
+
 from service_man import views as v
 
 app_name='service_man'
@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('login',views.LoginView.as_view(template_name='service_man/login.html'),name='login'),
     path('logout',views.LogoutView.as_view(),name='logout'),
-    #path('logout',v.logout,name='logout')
+
 ]
 
 

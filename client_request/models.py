@@ -57,7 +57,7 @@ class ClientRequest(models.Model):
     appliance_brand = models.CharField(max_length=50,choices=sorted(appliance_brand_CHOICES))
     appliance_model = models.CharField(max_length=50)
     warranty = models.CharField(max_length=50,choices=(warranty_CHOICES))
-    problem_description = models.CharField(max_length=200,blank=True)
+    problem_description = models.CharField(max_length=200,blank=True,null=True)
     request_date = models.DateTimeField(default=timezone.now)
     appointment_date= models.DateField()
     appointment_time = models.TimeField(blank=True,null=True)

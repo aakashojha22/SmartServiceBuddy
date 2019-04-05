@@ -1,7 +1,25 @@
 {% extends 'service_man/base.html' %}
 
 {% block content %}
-<div class="boxAbout"><h1>Welcome  to index</h1>
+
+<div class="container">
+    <br>
+    <h3></h3>
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="{{ user.servicemaninfo.profile_pic.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Hi <a href="">{{user.username}}</a>!!!!</h5>
+    <p class="card-text">
+Welcome to the team! We are thrilled to have you at SmartServiceBuddy. We know you’re going to be a valuable asset to our company and can’t wait to see what you accomplish.</p>
+    <a href="{% url 'service_man:pending_request' %}" class="btn btn-primary">Let Do Some Action</a>
+  </div>
+</div>
+
+
+
 </div>
 
 {% endblock %}
