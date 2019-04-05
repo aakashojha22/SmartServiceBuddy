@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.shortcuts import redirect
 from service_man.models import  ServiceManInfo
+from  django import forms
 
 # Create your models here.
 appliance_brand_CHOICES = (
@@ -56,7 +57,7 @@ class ClientRequest(models.Model):
     appliance_brand = models.CharField(max_length=50,choices=sorted(appliance_brand_CHOICES))
     appliance_model = models.CharField(max_length=50)
     warranty = models.CharField(max_length=50,choices=(warranty_CHOICES))
-    problem_description = models.CharField(max_length=200)
+    problem_description = models.CharField(max_length=200,blank=True)
     request_date = models.DateTimeField(default=timezone.now)
     appointment_date= models.DateField()
     appointment_time = models.TimeField(blank=True,null=True)
