@@ -1,4 +1,4 @@
-from django.views.generic import (TemplateView,CreateView,ListView,DetailView )
+from django.views.generic import (TemplateView,ListView,DetailView )
 from client_request.models import ClientRequest
 from .forms import ClientRequestForm
 from django.http import HttpResponse
@@ -11,7 +11,7 @@ from .tokens import email_verification
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.db.models import Q
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 # Create your views here.
 
@@ -30,13 +30,7 @@ class FaqsView(TemplateView):
 
 class CareerView(TemplateView):
     template_name = 'be_a_part_of_us.html'
-"""
-class ServicesRequestView(View):
-    #template_name = 'service_request_form.html'
-    form_class = ClientRequestForm
-    #success_url = 'thankyou'
-    model = ClientRequest
-"""
+
 def ServicesRequestView(request):
         form = ClientRequestForm()
         if request.method == "POST":
@@ -47,7 +41,6 @@ def ServicesRequestView(request):
                 current_site = get_current_site(request)
                 mail_subject='Please Verify Your Email-SmartServiceBuddy'
                 to_email = form.cleaned_data['email']
-                #args = (request_detail.pk,)
                 message = render_to_string('email_verification.html', {
                     'request_detail': request_detail,
                     'domain': current_site.domain,
@@ -97,28 +90,7 @@ class SearchView(ListView):
         return object_list
 
 
-"""
-class ProfileList(ListView):
-    template_name = 'your_template.html'
-    model = Profile
 
-    def get_queryset(self):
-        query = self.request.GET.get('q')
-        if query:
-            object_list = self.model.objects.filter(name__icontains=query)
-        else:
-            object_list = self.model.objects.none()
-        return object_list
-
-def search_request(request):
-    template='search_list.html'
-    query=request.GET.get('q')
-    if query:
-        result = ClientRequest.objects.filter(email__icontains=query)
-    else:
-        result=ClientRequest.objects.all()
-    return render(result,template,{'result': result})
-"""
 
 class RequestDetailView(DetailView):
     model = ClientRequest

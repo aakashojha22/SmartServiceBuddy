@@ -1,9 +1,7 @@
 from django import forms
 from client_request.models import ClientRequest
 from django.forms import SelectDateWidget
-from django.utils import timezone
 from datetime import date
-
 
 class ClientRequestForm(forms.ModelForm):
     appointment_date = forms.DateField(widget = SelectDateWidget)

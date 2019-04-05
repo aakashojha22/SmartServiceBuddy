@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.shortcuts import redirect
 from service_man.models import  ServiceManInfo
-from  django import forms
+
 
 # Create your models here.
 appliance_brand_CHOICES = (
