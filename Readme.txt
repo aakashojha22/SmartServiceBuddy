@@ -20,17 +20,6 @@ password:-
 email:-
 
 
------------------------ ( 03 ) -----------------------
-username:-
-password:-
-email:-
-
-
------------------------ ( 04 ) -----------------------
-username:-
-password:-
-email:-
-
 
 
 sericeman_info
