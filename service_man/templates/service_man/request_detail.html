@@ -1,5 +1,6 @@
 {% extends 'service_man/base.html' %}
 
+{% block title %}Request Detail-SmartServiceBuddy{% endblock %}
 {% block content %}
 
 <div class="container ">
@@ -17,8 +18,11 @@
     <p>Problem_description:- <b><u>{{clientrequest.problem_description}}</u></b></p>
     <p>Request_date:- <b><u>{{clientrequest.request_date}}</u></b></p>
     <p>Appointment_date:- <b><u>{{clientrequest.appointment_date}}</u></b></p>
-    <p>Appointment_date:- <b><u>{{clientrequest.appointment_time}}</u></b></p>
-
+    <p>Appointment_time:- <b><u>{{clientrequest.appointment_time}}</u></b></p>
+    <p>Charge:- <b><u>{{clientrequest.charge}}</u></b></p>
+    <p>Service Status:- <b><u>{{clientrequest.request_status}}</u></b></p>
+<br>
+    <a class="btn btn-primary" href="{% url 'service_man:request_update' pk=clientrequest.pk %}">Update Status</a>
 </div>
 
 {% endblock %}

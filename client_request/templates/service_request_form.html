@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}Service Request-SmartServiceBuddy{% endblock %}
 {% load bootstrap4 %}
 {% block content %}
+
   <div class="loader">
     <div class="container" ><h1><i>Service Request</i></h1></div>
     <div class="container">
@@ -8,7 +10,7 @@
     {% csrf_token %}
     {% bootstrap_form form %}
       <label><p></p></label>
-      <h1> </h1>
+      <br>
     <input type="submit" class="btn btn-primary" value="Submit Request">
     </form>
     </div>

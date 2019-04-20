@@ -3,14 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SmartServiceBuddy</title>
-
+    <title> {% block title %}{% endblock %}</title>
+  <link rel = "icon" href ="{% static 'images/logo_base_icon.png' %}"
+        type = "image/x-icon">
     <!--bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     {# Custom CSS#}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {# Custom Js  #}
+    <script src="{% static 'js/style.js' %}"></script>
 
     {# Fonts#}
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
@@ -20,14 +26,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!--===============faq_css=======-->
 <style>
-    body{
+
+       body{
   background-image: url("{% static 'images/bg.png' %}");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size:  cover;
 }
 .navbar{
-height:20px;
+height:auto;
 font-size:16px;
 }
 
@@ -57,13 +64,94 @@ font-size:16px;
 }
 
 
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+<!--custom animation backgrund-->
+
+html {
+  height:100%;
+}
+
+body {
+  margin:0;
+}
+
+.bg {
+  animation:slide 2.2s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #588 50%, #fff 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:3.5s;
+}
+
+.bg3 {
+  animation-duration:3s;
+}
+.bg4 {
+  animation-duration:5s;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+
+
+
 </style>
 </head>
 
-
-
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="bg bg4"></div>
+
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{% url 'index' %}">
     <img src="{% static 'images/base.png' %}" width="100" height="30px" class="d-inline-block align-top" alt=""></a>
     <div class=" collapse navbar-collapse" id="">
@@ -77,19 +165,16 @@ font-size:16px;
   </div>
 
     </nav>
+<!--page content-->
 
-<div >
 {%  block content %}
 
 {% endblock %}
-</div>
-
-
 
 
 <!-- Footer -->
 
-<footer class="page-footer font-small blue pt-4">
+<footer class="page-footer font-small blue pt-4 ">
 <img class="img-responsive" src="{% static 'images/boarder.jpg' %}" alt="" width="100%" height="5px">
 
     <!-- Footer Links -->
@@ -178,5 +263,8 @@ font-size:16px;
 
   </footer>
   <!-- Footer -->
+
+
+
   </body>
 </html>

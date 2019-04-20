@@ -1,0 +1,18 @@
+{% extends 'service_man/base.html' %}
+
+{% block title %}Update Request-SmartServiceBuddy{% endblock %}
+{% load bootstrap4 %}
+{% block content %}
+  <div class="loader">
+    <div class="container" ><h1><i>Service Request</i></h1></div>
+    <div class="container">
+    <form method="POST" >
+    {% csrf_token %}
+    {{form.as_p}}
+
+
+    <input type="submit" class="btn btn-primary" value="Update Status">
+    </form>
+    </div>
+  </div>
+{% endblock %}

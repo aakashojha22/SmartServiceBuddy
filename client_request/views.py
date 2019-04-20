@@ -1,7 +1,7 @@
 from django.views.generic import (TemplateView,ListView,DetailView )
 from client_request.models import ClientRequest
 from .forms import ClientRequestForm
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect,HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -11,9 +11,9 @@ from .tokens import email_verification
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.db.models import Q
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
-
-# Create your views here.
 
 
 class IndexView(TemplateView):
@@ -47,13 +47,11 @@ def ServicesRequestView(request):
                     'uid': urlsafe_base64_encode(force_bytes(request_detail.pk)).decode(),
                     'token': email_verification.make_token(request_detail),
                 })
-                email = EmailMessage(
-                    mail_subject, message, to=[to_email]
-                )
+                email = EmailMessage(mail_subject, message, to=[to_email])
                 email.send()
-                
-                
-                return redirect('thankyou') 
+
+
+                return redirect('thankyou')
         return render(request,'service_request_form.html',{'form':form})
 
 
@@ -67,7 +65,7 @@ def email_verify(request, uidb64, token):
         user.email_verification = True
         user.save()
         # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return render(request,'thankyou-email.html')
     else:
         return HttpResponse('Activation link is invalid!')
 
@@ -97,3 +95,13 @@ class RequestDetailView(DetailView):
     template_name = 'request_detail.html'
 
 
+
+# to send http mail
+"""message = Mail(
+                    from_email='smartservicebuddy@gmail.com',
+                    to_emails=to_email,
+                    subject='Sending with SendGrid is Fun',
+                    html_content=message)
+                sg = SendGridAPIClient('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')
+                sg.send(message)
+"""

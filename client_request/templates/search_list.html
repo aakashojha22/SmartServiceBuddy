@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
+{% block title %}Search-SmartServiceBuddy{% endblock %}
 {% block content %}
-<div  class="centerstage">
+<div  class="container">
 <form method='GET'>
 
-    <label>Enter You Phone no. or Email&nbsp;&nbsp;</label><input class="" type='text' name='q' value='{{ request.GET.q }}'>
-  <input class="btn btn-primary" type='submit' value="Search Request" >
+
+    <input  placeholder="Enter You Phone no. or Email" class="form-control" id="formGroupExampleInput" type='text' name='q' value='{{ request.GET.q }}'>&nbsp&nbsp&nbsp&nbsp
+    <br>
+    <input class="btn btn-primary" type='submit' value="Search Request" >
     <br>
     <br>
 </form>
@@ -12,18 +15,43 @@
 
 
 
+<div class="container">
+{% if object_list %}
+    <table class="table table-hover">
+<thead>
+    <tr>
+      <th scope="col"><i><h3>Email</h3></i></th>
+      <th scope="col"><i><h3>Name</h3></i></th>
+     <th scope="col"><i><h3>Phone No.</h3></i></th>
+     <th scope="col"><i><h3>Appointment Date</h3></i></th>
+
+    </tr>
+  </thead>
+  <tbody class=".table-hover">
+
+  {% else %}
+  <h3><i>&nbsp No Result Found !!!</i></h3>
+
+
+{% endif %}
+
+
+
   {% for request in object_list %}
-        <div class="container" >
-        <h1><a href="{% url 'request_detail' pk=request.pk %}">{{request.email}}</a></h1>
-            <div class="date">
-            <p>Appointment on:{{request.appointment_date|date:"d M Y"}}</p>
-         <br>
-                </div>
-            </div>s
+
+    <tr>
+      <td><b><a href="{% url 'request_detail' pk=request.pk %}">{{request.email}}</a></b></td>
+      <td scope="row">{{request.name}}</td>
+        <td><b>{{request.mobile}}</b></td>
+        <td><b>{{request.appointment_date}}</b></td>
+    </tr>
+
+
                 {% endfor %}
-
-
-
-
+ </tbody>
+    </table>
+        </div>
 
         {% endblock %}
+
+

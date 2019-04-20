@@ -6,6 +6,8 @@
 
 pip install django-bootstrap-4
 pip install pillow 
+#for http mail verfication
+pip install sendgrid
 
 django-admin 
 ----------------------- ( 01 ) -----------------------

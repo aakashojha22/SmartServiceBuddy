@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.shortcuts import redirect
-from service_man.models import  ServiceManInfo
+from service_man.models import ServiceManInfo
 
 
 # Create your models here.
@@ -45,6 +45,12 @@ warranty_CHOICES = (
     ('pre warranty', 'Pre Warranty'),
     ('post warranty','Post Warranty'),
      )
+request_status_CHOICES= (
+    ('service_done','Service Done'),
+('service_pending','Service Pending'),
+     )
+
+
 class ClientRequest(models.Model):
     
     #detail_by_client
@@ -68,6 +74,7 @@ class ClientRequest(models.Model):
 
     email_verification =  models.BooleanField(default=False)
     charge = models.PositiveIntegerField(blank=True,null=True)
+    request_status=models.CharField(max_length=50,choices=(request_status_CHOICES),blank=True,null=True,default='service_pending')
     
     
     

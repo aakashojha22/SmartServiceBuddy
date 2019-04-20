@@ -1,28 +1,110 @@
 {% extends 'base.html' %}
-
+{% block title %}Track Request-SmartServiceBuddy{% endblock %}
 {% block content %}
 
-<div class="container ">
+<div class="container">
+    <table class="table table-hover">
+
+  <tbody class=".table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col"><i><h3>Fields</h3></i></th>
+      <th scope="col"><i><h3>Detail</h3></i></th>
+
+    </tr>
+  </thead>
+
+    <tr>
+      <td scope="row">Name</td>
+      <td><b>{{clientrequest.name}}</b></td>
+    </tr>
+
+    <tr>
+      <td scope="row">Mobile</td>
+      <td><b>{{clientrequest.mobile}}</b></td>
+    </tr>
+
+   <tr>
+      <td scope="row">Email</td>
+      <td><b>{{clientrequest.email}}</b></td>
+    </tr>
+
+   <tr>
+      <td scope="row">Pincode</td>
+      <td><b>{{clientrequest.pincode}}</b></td>
+    </tr>
+
+   <tr>
+      <td scope="row">Address</td>
+      <td><b>{{clientrequest.address}}</b></td>
+    </tr>
+
+   <tr>
+      <td scope="row">Appliance Type</td>
+      <td><b>{{clientrequest.appliance_type}}</b></td>
+    </tr>
+
+   <tr>
+      <td scope="row">Appliance Brand</td>
+      <td><b>{{clientrequest.appliance_brand}}</b></td>
+    </tr>
 
 
-    <p>Name :- <b><u>{{clientrequest.name}}</u></b></p>
-    <p>Mobile :- <b><u>{{clientrequest.mobile}}</u></b></p>
-    <p>Email :- <b><u>{{clientrequest.email}}</u></b></p>
-    <p>Pincode :- <b><u>{{clientrequest.pincode}}</u></b></p>
-    <p>Address:- <b><u>{{clientrequest.address}}</u></b></p>
-    <p>Appliance_type:- <b><u>{{clientrequest.appliance_type}}</u></b></p>
-    <p>Appliance_brand:- <b><u>{{clientrequest.appliance_brand}}</u></b></p>
-    <p>Appliance_model:- <b><u>{{clientrequest.appliance_model}}</u></b></p>
-    <p>Warranty:- <b><u>{{clientrequest.warranty}}</u></b></p>
-    <p>Problem_description:- <b><u>{{clientrequest.problem_description}}</u></b></p>
-    <p>Request_date:- <b><u>{{clientrequest.request_date}}</u></b></p>
-    <p>Appointment_date:- <b><u>{{clientrequest.appointment_date}}</u></b></p>
-    <p>Tele Verification Status:- <b><u>{{clientrequest.verfication_status}}</u></b></p>
-    <p>Service Man Appointed:- <b><u>{{clientrequest.service_man}}</u></b></p>
-    <p>Email Verification:- <b><u>{{clientrequest.email_verification}}</u></b></p>
-    <p>Service Man Appointed:- <b><u>{{clientrequest.service_man}}</u></b></p>
+ <tr>
+      <td scope="row">Appliance Model</td>
+      <td><b>{{clientrequest.appliance_model}}</b></td>
+    </tr>
+
+   <tr>
+      <td scope="row">Warranty Status</td>
+      <td><b>{{clientrequest.warranty}}</b></td>
+    </tr>
+
+   <tr>
+      <td scope="row">Problem Description</td>
+      <td><b>{{clientrequest.problem_description}}</b></td>
+    </tr>
+
+   <tr>
+      <td scope="row">Request Date</td>
+      <td><b>{{clientrequest.request_date}}</b></td>
+    </tr>
+
+     <tr>
+      <td scope="row">Appointment Date</td>
+      <td><b>{{clientrequest.appointment_date}}</b></td>
+    </tr>
+
+     <tr>
+      <td scope="row">Tele Verification Status</td>
+      <td><b>{{clientrequest.verfication_status}}</b></td>
+    </tr>
 
 
+
+     <tr>
+      <td scope="row">Email Verification</td>
+      <td><b>{{clientrequest.email_verification}}</b></td>
+    </tr>
+
+    <tr>
+      <td scope="row">Service Man Appointed</td>
+      <td><b>{{clientrequest.service_man}}</b></td>
+    </tr>
+
+     <tr>
+      <td scope="row">Service Request Status</td>
+      <td><b>{{clientrequest.request_status}}</b></td>
+    </tr>
+  {% if clientrequest.charge %}
+        <tr>
+      <td scope="row">Service Request Charge</td>
+      <td><b>{{clientrequest.charge}}</b></td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
 </div>
 
 {% endblock %}
