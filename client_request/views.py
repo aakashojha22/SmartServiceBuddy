@@ -11,8 +11,8 @@ from .tokens import email_verification
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.db.models import Q
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+#from sendgrid import SendGridAPIClient
+#from sendgrid.helpers.mail import Mail
 
 
 
@@ -44,11 +44,11 @@ def ServicesRequestView(request):
                 message = render_to_string('email_verification.html', {
                     'request_detail': request_detail,
                     'domain': current_site.domain,
-                    'uid': urlsafe_base64_encode(force_bytes(request_detail.pk)).decode(),
+                    'uid': urlsafe_base64_encode(force_bytes(request_detail.pk)),
                     'token': email_verification.make_token(request_detail),
                 })
-                email = EmailMessage(mail_subject, message, to=[to_email])
-                email.send()
+                #email = EmailMessage(mail_subject, message, to=[to_email])
+                #email.send()
 
 
                 return redirect('thankyou')
